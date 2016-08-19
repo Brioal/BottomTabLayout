@@ -3,6 +3,7 @@ package com.brioal.bottomtab.view;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -15,7 +16,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import com.brioal.bottomtab.R;
 import com.brioal.bottomtab.util.SizeUtil;
 
-/**按钮组件
+/**
+ * 按钮组件
  * Created by Brioal on 2016/8/18.
  */
 
@@ -42,6 +44,7 @@ public class TabButton extends View {
     private int mInRadius;
     private long mDuration;
     private int mType = 0;
+    private int mNews =-1;
 
     private boolean isSelected = false;
 
@@ -82,6 +85,12 @@ public class TabButton extends View {
     //设置文字大小
     public void setTextSize(int textSize) {
         mTextSize = (int) SizeUtil.Dp2Px(getContext(), textSize);
+    }
+
+    //设置未读消息
+    public void setNews(int news) {
+        this.mNews = news;
+        invalidate();
     }
 
     //设置动画时长
@@ -219,6 +228,21 @@ public class TabButton extends View {
         mDrawable.setColorFilter(mColor, PorterDuff.Mode.SRC_IN);
         mDrawable.draw(canvas);
         canvas.restore();
+        canvas.save();
+        //绘制未读消息
+        if (mNews != -1) {
+            canvas.translate(getWidth() / 2 + r, mIconHeight / 2 -5);
+            mPaint.setColor(Color.RED);
+            canvas.drawCircle(0, 0, r*2/3 , mPaint);
+            String text = mNews + "";
+            mPaint.setTextSize(SizeUtil.Dp2Px(getContext(), 10));
+            Rect bound = new Rect();
+            mPaint.getTextBounds(text, 0, text.length(), bound);
+            mPaint.setColor(Color.WHITE);
+            canvas.drawText(text, -(bound.right - bound.left) / 2, -(bound.bottom + bound.top) / 2, mPaint);
+        }
+        canvas.restore();
+
         //绘制文字
         mPaint.setColor(mColor);
         mPaint.setTextSize(mTextSize);
@@ -228,6 +252,7 @@ public class TabButton extends View {
         mPaint.getTextBounds(mText, 0, mText.length(), bound);
         canvas.drawText(mText, -(bound.right - bound.left) / 2, -(bound.bottom + bound.top) / 2, mPaint);
         canvas.restore();
+
 
     }
 }

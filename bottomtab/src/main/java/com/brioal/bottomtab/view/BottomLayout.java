@@ -1,17 +1,20 @@
 package com.brioal.bottomtab.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.brioal.bottomtab.R;
 import com.brioal.bottomtab.entity.TabEntity;
 import com.brioal.bottomtab.interfaces.OnTabSelectedListener;
 
 import java.util.List;
 
-/**按钮容纳组件
+/**
+ * 按钮容纳组件
  * Created by Brioal on 2016/8/19.
  */
 
@@ -35,17 +38,19 @@ public class BottomLayout extends LinearLayout implements View.OnClickListener {
 
     public BottomLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        setOrientation(HORIZONTAL);
+        initObtainedAttr(context, attrs);
     }
 
-    private void init() {
-        setOrientation(HORIZONTAL);
-        mColorNormal = -1;
-        mColorSelect = -1;
-        mExCircleColor = -1;
-        mInCircleColor = -1;
-        mTextSize = -1;
-        mDuration = -1;
+    private void initObtainedAttr(Context context, AttributeSet attrs) {
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.BottomLayout);
+        mColorNormal = array.getColor(R.styleable.BottomLayout_colorNormal, -1);
+        mColorSelect = array.getColor(R.styleable.BottomLayout_colorSelected, -1);
+        mExCircleColor = array.getColor(R.styleable.BottomLayout_exCircleColor, -1);
+        mInCircleColor = array.getColor(R.styleable.BottomLayout_inCircleColor, -1);
+        mTextSize = (int) array.getDimension(R.styleable.BottomLayout_textSize, -1);
+        mDuration = array.getInteger(R.styleable.BottomLayout_animDuration, -1);
+        array.recycle();
     }
 
     public void setCurrentIndex(int currentIndex) {
@@ -53,34 +58,51 @@ public class BottomLayout extends LinearLayout implements View.OnClickListener {
         ((TabButton) getChildAt(mCurrentIndex)).startAnimation();
     }
 
+    //设置消息数量
+    public void setNews(int newSum, int index) {
+        ((TabButton) getChildAt(index)).setNews(newSum);
+    }
+
+    //清除制定位置消息
+    public void cleanNews(int index) {
+        ((TabButton) getChildAt(index)).setNews(-1);
+    }
+
     //设置事件监听器
     public void setSelectedListener(OnTabSelectedListener selectedListener) {
         mSelectedListener = selectedListener;
     }
+
     //设置未点击颜色
     public void setColorNormal(int colorNormal) {
         mColorNormal = colorNormal;
     }
+
     //设置点击颜色
     public void setColorSelect(int colorSelect) {
         mColorSelect = colorSelect;
     }
+
     //设置字体大小
     public void setTextSize(int textSize) {
         mTextSize = textSize;
     }
+
     //设置外圆颜色
     public void setExCircleColor(int exCircleColor) {
         mExCircleColor = exCircleColor;
     }
+
     //设置内圆颜色
     public void setInCircleColor(int inCircleColor) {
         mInCircleColor = inCircleColor;
     }
+
     //设置动画时长
     public void setDuration(int duration) {
         mDuration = duration;
     }
+
     //设置数据源
     public void setList(List<TabEntity> list) {
         mList = list;

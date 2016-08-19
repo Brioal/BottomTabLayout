@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomLayout">
+        <!--未选中的颜色-->
+        <attr name="colorNormal" format="color"/>
+        <!--选中的颜色-->
+        <attr name="colorSelected" format="color"/>
+        <!--字体大小-->
+        <attr name="textSize" format="dimension"/>
+        <!--外圆颜色-->
+        <attr name="exCircleColor" format="color"/>
+        <!--内圆颜色-->
+        <attr name="inCircleColor" format="color"/>
+        <!--动画时长-->
+        <attr name="animDuration" format="integer"/>
+    </declare-styleable>
+</resources>
