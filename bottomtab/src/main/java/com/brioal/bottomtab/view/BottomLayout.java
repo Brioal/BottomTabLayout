@@ -28,6 +28,7 @@ public class BottomLayout extends LinearLayout implements View.OnClickListener {
     private int mTextSize; //文字大小
     private int mDuration; //动画时长
     private int mCurrentIndex = 0;
+    private int mHeight = -1;
 
     private OnTabSelectedListener mSelectedListener;
 
@@ -56,6 +57,11 @@ public class BottomLayout extends LinearLayout implements View.OnClickListener {
     public void setCurrentIndex(int currentIndex) {
         mCurrentIndex = currentIndex;
         ((TabButton) getChildAt(mCurrentIndex)).startAnimation();
+    }
+
+    //设置菜单高度
+    public void setMenuHeight(int height) {
+
     }
 
     //设置消息数量
@@ -111,6 +117,9 @@ public class BottomLayout extends LinearLayout implements View.OnClickListener {
                 int res = mList.get(i).getIcon();
                 String text = mList.get(i).getText();
                 TabButton button = new TabButton(getContext());
+                if (mHeight != -1) {
+                    button.setMaxHeight(mHeight);
+                }
                 button.setIcon(getResources().getDrawable(res));
                 button.setText(text);
                 int type = TabButton.CENTER;

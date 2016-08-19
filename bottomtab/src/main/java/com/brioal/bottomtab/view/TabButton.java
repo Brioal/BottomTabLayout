@@ -44,7 +44,7 @@ public class TabButton extends View {
     private int mInRadius;
     private long mDuration;
     private int mType = 0;
-    private int mNews =-1;
+    private int mNews = -1;
 
     private boolean isSelected = false;
 
@@ -133,6 +133,11 @@ public class TabButton extends View {
         mExRadius = 0;
         mInRadius = 0;
         mDuration = 160;
+    }
+
+    //设置最大高度
+    public void setMaxHeight(int maxHeight) {
+        mMaxHeight = (int) SizeUtil.Dp2Px(getContext(), maxHeight);
     }
 
     @Override
@@ -231,9 +236,9 @@ public class TabButton extends View {
         canvas.save();
         //绘制未读消息
         if (mNews != -1) {
-            canvas.translate(getWidth() / 2 + r, mIconHeight / 2 -5);
+            canvas.translate(getWidth() / 2 + r, mIconHeight / 2 - 5);
             mPaint.setColor(Color.RED);
-            canvas.drawCircle(0, 0, r*2/3 , mPaint);
+            canvas.drawCircle(0, 0, r * 2 / 3, mPaint);
             String text = mNews + "";
             mPaint.setTextSize(SizeUtil.Dp2Px(getContext(), 10));
             Rect bound = new Rect();
