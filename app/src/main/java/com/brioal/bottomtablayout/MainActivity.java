@@ -22,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mBottomLayout = (BottomLayout) findViewById(R.id.main_tab);
         mList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            mList.add(new TabEntity(R.mipmap.ic_launcher, "按钮" + i));
-        }
+        mList.add(new TabEntity(R.mipmap.icon_1, "推荐"));
+        mList.add(new TabEntity(R.mipmap.icon_2, "游戏"));
+        mList.add(new TabEntity(R.mipmap.icon_3, "软件"));
+        mList.add(new TabEntity(R.mipmap.icon_4, "应用圈"));
+        mList.add(new TabEntity(R.mipmap.icon_5, "管理"));
         mBottomLayout.setList(mList);
         mBottomLayout.setSelectedListener(new OnTabSelectedListener() {
             @Override
