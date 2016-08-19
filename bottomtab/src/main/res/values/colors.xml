@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorExCircle">#58069762</color>
+    <color name="colorInCircle">#18a672</color>
+    <color name="colorNormal">#454646</color>
+    <color name="colorSelect">#ffffff</color>
+</resources>
