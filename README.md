@@ -86,7 +86,7 @@ xml属性|Java方法|功能
 ##Step 2. 添加依赖
 ```
 	dependencies {
-	        compile 'com.github.Brioal:BottomTabLayout:1.1'
+	        compile 'com.github.Brioal:BottomTabLayout:1.3'
 	}
 	
 ```
