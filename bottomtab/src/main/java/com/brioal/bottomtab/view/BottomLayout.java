@@ -57,6 +57,11 @@ public class BottomLayout extends LinearLayout implements View.OnClickListener {
     public void setCurrentIndex(int currentIndex) {
         mCurrentIndex = currentIndex;
         ((TabButton) getChildAt(mCurrentIndex)).startAnimation();
+        for (int i = 0; i < mList.size(); i++) {
+            if (getChildAt(i).getId() != currentIndex) {
+                ((TabButton) getChildAt(i)).reset();
+            }
+        }
     }
 
     //设置菜单高度
