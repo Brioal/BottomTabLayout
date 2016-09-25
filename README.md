@@ -1,4 +1,4 @@
-# BottomTabLayout
+# BottomTabLayout[![](https://jitpack.io/v/Brioal/BottomTabLayout.svg)](https://jitpack.io/#Brioal/BottomTabLayout)
 #仿360底部动画菜单布局
 #效果对比:
 360手机助手效果演示:|本库实现的效果(Icon来自360手机助手,侵删)
@@ -86,7 +86,7 @@ xml属性|Java方法|功能
 ##Step 2. 添加依赖
 ```
 	dependencies {
-	        compile 'com.github.Brioal:BottomTabLayout:1.3'
+	        compile 'com.github.Brioal:BottomTabLayout:1.4'
 	}
 	
 ```
