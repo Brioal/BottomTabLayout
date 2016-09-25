@@ -1,4 +1,25 @@
 # BottomTabLayout[![](https://jitpack.io/v/Brioal/BottomTabLayout.svg)](https://jitpack.io/#Brioal/BottomTabLayout)
+##添加依赖库的方法
+#在项目中添加此组件的方式:
+##Step 1. 项目的build.gradle文件做如下修改
+```
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+	
+```
+
+##Step 2. 添加依赖
+```
+	dependencies {
+	        compile 'com.github.Brioal:BottomTabLayout:1.4'
+	}
+	
+```
+
 #仿360底部动画菜单布局
 #效果对比:
 360手机助手效果演示:|本库实现的效果(Icon来自360手机助手,侵删)
@@ -70,25 +91,5 @@ xml属性|Java方法|功能
 无|`cleanNews(int index)`|清除指定Item的未读消息
 
 ##方法就这些,使用也不难.
-##添加依赖库的方法
-#在项目中添加此组件的方式:
-##Step 1. 项目的build.gradle文件做如下修改
-```
-	allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
-	}
-	
-```
-
-##Step 2. 添加依赖
-```
-	dependencies {
-	        compile 'com.github.Brioal:BottomTabLayout:1.4'
-	}
-	
-```
 
 #完毕~
