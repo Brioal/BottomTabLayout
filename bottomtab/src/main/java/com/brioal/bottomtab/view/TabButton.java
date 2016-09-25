@@ -197,7 +197,7 @@ public class TabButton extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mIconHeight = mHeight * 3 / 5;
+        mIconHeight = mHeight * 3 / 6;
         mMaxExCircleRadius = w / 2;
         mMaxInCircleRadius = (int) (mMaxExCircleRadius - SizeUtil.Dp2Px(getContext(), 10));
     }
@@ -229,7 +229,7 @@ public class TabButton extends View {
         canvas.save();
         canvas.translate(getWidth() / 2, mIconHeight / 2);
         int r = mIconHeight / 2;
-        mDrawable.setBounds(-r, -r, r, r);
+        mDrawable.setBounds(-r, -r+7, r, r+7);
         mDrawable.setColorFilter(mColor, PorterDuff.Mode.SRC_IN);
         mDrawable.draw(canvas);
         canvas.restore();
